@@ -44,9 +44,9 @@
               "quill",
               "moment",
               "quill-image-resize-module",
-              "object-path",
               "fast-deep-equal",
-              "@fullcalendar/core/locales/fr"
+              "@fullcalendar/core/locales/fr",
+              "mini-object-path"
             ],
             "outputPath": "dist/eg2-client",
             "index": "src/index.html",

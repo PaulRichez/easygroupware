@@ -4252,6 +4252,11 @@
   dependencies:
     "schema-utils" "^4.0.0"
 
+"mini-object-path@^1.0.2":
+  "integrity" "sha512-b2CYC12H5/896iORccRJlAQythaYaoUkW0BGKNiBCciSIbvnJKLtOFJz4wYOnSvOcl1PkbYavN/lpOpNACpdIQ=="
+  "resolved" "https://registry.npmjs.org/mini-object-path/-/mini-object-path-1.0.2.tgz"
+  "version" "1.0.2"
+
 "minimalistic-assert@^1.0.0":
   "integrity" "sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A=="
   "resolved" "https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz"
@@ -4604,11 +4609,6 @@
   "integrity" "sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA=="
   "resolved" "https://registry.npmjs.org/object-keys/-/object-keys-1.1.1.tgz"
   "version" "1.1.1"
-
-"object-path@^0.11.8":
-  "integrity" "sha512-YJjNZrlXJFM42wTBn6zgOJVar9KFJvzx6sTWDte8sWZF//cnjl0BxHNpfZx+ZffXX63A9q0b1zsFiBX4g4X5KA=="
-  "resolved" "https://registry.npmjs.org/object-path/-/object-path-0.11.8.tgz"
-  "version" "0.11.8"
 
 "obuf@^1.0.0", "obuf@^1.1.2":
   "integrity" "sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg=="

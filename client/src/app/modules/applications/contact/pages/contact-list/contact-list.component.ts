@@ -7,7 +7,7 @@ import * as qs from 'qs'
 import { IContact } from 'src/app/shared/models/contact.model';
 import { TreeNode } from 'primeng/api';
 import * as _ from "lodash";
-import * as objectPath from "object-path";
+import * as objectPath from "mini-object-path"
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
