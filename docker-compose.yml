@@ -1,0 +1,86 @@
+version: '3.7'
+services:
+    angular:
+        container_name: easygroupware_client
+        restart: always
+        build: client
+        ports:
+            # - "8080:80"
+            - "80:80"
+    strapi:
+        container_name: easygroupware_client_server
+        build: server
+        restart: always
+        environment:
+            DATABASE_CLIENT: postgres
+            DATABASE_NAME: strapi
+            DATABASE_HOST: postgres
+            DATABASE_PORT: 5432
+            DATABASE_USERNAME: strapi
+            DATABASE_PASSWORD: strapi
+            STRAPI_PLUGIN_I18N_INIT_LOCALE_CODE: fr
+            JWT_SECRET: 07df0cea-74fc-4c40-a4b2-869d36e7e4bd
+        volumes:
+            - ./docker-volumes/strapi-app:/srv/app
+        ports:
+            - '1339:1337'
+        depends_on:
+            - postgres
+            - emailengine
+    postgres:
+        container_name: easygroupware_postgres
+        image: postgres
+        #ports:
+        #     - "5432:5432"
+        environment:
+            POSTGRES_DB: strapi
+            POSTGRES_USER: strapi
+            POSTGRES_PASSWORD: strapi
+        volumes:
+            - ./docker-volumes/postgres-data:/var/lib/postgresql/data
+    emailengine:
+        container_name: easygroupware_emailengine
+        image: andris9/emailengine:latest
+        restart: always
+        ports:
+            # API and web interface
+            - '3000:3000'
+        depends_on:
+            - redis
+        environment:
+            # Configuration to EmailEngine can be passed via environment variables
+            # For full list see https://github.com/postalsys/emailengine#config-mapping
+
+            # Settings to write to v1/settings on startup (https://api.emailengine.app/#operation/postV1Settings)
+            # The following value is a YAML block scalar string, so make it sure it is properly indented
+            # This configuration enables SMTP server for local submission
+            EENGINE_SETTINGS: >
+                {
+                    "smtpServerEnabled": true,
+                    "smtpServerPort": 2525,
+                    "smtpServerHost": "0.0.0.0",
+                    "smtpServerAuthEnabled": true,
+                    "smtpServerPassword": "passw0rd",
+                    "webhooksEnabled": true,
+                    "webhooks": "https://webhook.site/c2099717-d0ea-48b9-91c2-8ae198cd926d",
+                    "webhookEvents": ["*"]
+                }
+
+            # Encryption secret
+            EENGINE_SECRET: 'secret'
+            # EENGINE_PREPARED_PASSWORD: 'JHBia2RmMi1zaGEyNTYkaT0yNTAwMCQ4cUhrVDg5SWFoazUvRDNkSHI3UlJ3JDg5dXdKSTlGTTlvSHFMV2JoaHdIWWk0TFVaZkdWK0pGcWt6Snd2NXFSQ2M='
+            # EENGINE_PREPARED_TOKEN: 'h6JpZNlANTJlZDVjNjBjMTBkYTQwOWRlZGJjYzg4ZTg2ODAxZWQzMGQ3YjhlMmViZTMzNGZlNzc5M2ZhYTU5MGY0MzFmZadjcmVhdGVkuDIwMjItMDMtMTRUMjA6MjU6MzMuODU1WqJpcKwxOTIuMTY4LjE2LjGtcmVtb3RlQWRkcmVzc6wxOTIuMTY4LjE2LjGmc2NvcGVzkaNhcGmrZGVzY3JpcHRpb26kVEVTVKZhY2Nlc3OCpHRpbWW4MjAyMi0wMy0xNFQyMDoyNjowMy4wNjFaomlwrDE5Mi4xNjguMTYuMQ'
+            # Database connection URL
+            EENGINE_REDIS: 'redis://:Ps61238897Ap!@redis:6369/2'
+
+    redis:
+        container_name: easygroupware_redis
+        image: redis:alpine
+        command: redis-server  --requirepass Ps61238897Ap!  --appendonly yes --port 6369
+        restart: always
+        volumes:
+            - ./docker-volumes/redis-data:/data
+        environment:
+            - REDIS_REPLICATION_MODE=master
+        #ports:
+        #    - "6369:6369"

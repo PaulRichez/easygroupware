@@ -1,0 +1,15 @@
+{
+  "name": "easygroupware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm run client-install & npm run server-install",
+    "client-install": "(cd ./client && npm install --force)",
+    "server-install": "(cd ./server && npm install)",
+    "docker": "docker-compose up -d",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Richez",
+  "license": "MIT"
+}
