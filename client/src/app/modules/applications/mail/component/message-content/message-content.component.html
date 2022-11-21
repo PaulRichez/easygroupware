@@ -1,0 +1,6 @@
+<div *ngIf="mail.text.html">
+    <div [innerHTML]="mail.text.html | safe: 'html'"></div>
+</div>
+<div *ngIf="!mail.text.html">
+    <div>{{ mail.text.text }}</div>
+</div>

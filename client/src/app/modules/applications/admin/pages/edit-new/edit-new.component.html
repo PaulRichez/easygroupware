@@ -1,0 +1,32 @@
+<div>
+    <p-button label="Retour" styleClass="p-button-secondary p-button-text p-button-sm" icon="pi pi-arrow-left"
+        (click)="goBack()"></p-button>
+</div>
+<form [formGroup]="formNews" (ngSubmit)="onSubmit()" class="p-fluid grid">
+    <div class="col-12 flex justify-content-between mb-3">
+        <div>
+
+        </div>
+        <div>
+            <p-button label="Enregister" [loading]="loadingSave" styleClass="p-button-sm" type="submit"></p-button>
+        </div>
+    </div>
+    <div class="col-12">
+        <p-card header="News">
+            <ng-template pTemplate="body">
+                <div class="p-fluid grid">
+                    <div class="field col-12 md:col-6">
+                        <span class="p-float-label">
+                            <input id="title" formControlName="title" type="text" pInputText class="w-full"
+                                dFormValidation>
+                            <label for="title">title</label>
+                        </span>
+                    </div>
+                    <div class="col-12">
+                        <p-editor formControlName="content" [modules]="modules" [style]="{'height':'320px'}"></p-editor>
+                    </div>
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
+</form>

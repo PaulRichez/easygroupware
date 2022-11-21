@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_contact_addresses",
+  "info": {
+    "displayName": "address",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "country": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact.country"
+    },
+    "city": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact.city"
+    },
+    "street1": {
+      "type": "string"
+    },
+    "street2": {
+      "type": "string"
+    }
+  }
+}

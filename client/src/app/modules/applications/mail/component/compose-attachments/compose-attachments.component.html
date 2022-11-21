@@ -1,0 +1,21 @@
+<p-panel header="Pieces jointe" [toggleable]="true" expandIcon="pi pi-chevron-down" collapseIcon="pi pi-chevron-up">
+    <ng-template pTemplate="icons">
+        <button pButton class="p-panel-header-icon p-link" type="button" (click)="fileInput.click()">
+            <span class="pi pi-plus"></span>
+        </button>
+    </ng-template>
+    <div style="max-height: 250px; overflow: auto">
+        <div *ngFor="let file of files; let i = index" class="py-3">
+            <div class="flex flex-row align-items-center pb-1">
+                <span class="mr-3 text-overflow-ellipsis white-space-nowrap overflow-hidden"
+                    [ngClass]="{'text-error' : file.error}">{{ file.file.name }}</span>
+                <button pButton type="button" class="p-button-outlined p-button-danger" icon="pi pi-times" (click)="removeFile(i)"></button>
+            </div>
+            <p-progressBar [ngClass]="{'error' : file.error}" [value]="file.uploadProgress" [showValue]="true">
+            </p-progressBar>
+        </div>
+    </div>
+
+</p-panel>
+
+<input type="file" class="hidden" multiple="true" #fileInput (change)="upload($event, fileInput)" />

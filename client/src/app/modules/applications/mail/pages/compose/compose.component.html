@@ -1,0 +1,49 @@
+<div>
+    <p-button label="Retour" styleClass="p-button-secondary p-button-text p-button-sm" icon="pi pi-arrow-left"
+        (click)="goBack()"></p-button>
+</div>
+
+<form *ngIf="!loading" [formGroup]="sendmessageForm" (ngSubmit)="onSubmit()" class="flex flex-column">
+    <p-card>
+        <div class="w-full mb-2">
+            <span class="p-inputgroup">
+                <span class="p-inputgroup-addon">De</span>
+                <input id="from" type="text" pInputText formControlName="from">
+            </span>
+        </div>
+        <div class="w-full mb-2">
+            <span class="p-inputgroup">
+                <span class="p-inputgroup-addon">À</span>
+                <input id="to" type="text" pInputText formControlName="to">
+            </span>
+        </div>
+        <div class="w-full mb-2">
+            <span class="p-inputgroup">
+                <span class="p-inputgroup-addon">Cc</span>
+                <input id="cc" type="text" pInputText formControlName="cc">
+            </span>
+        </div>
+        <div class="w-full mb-2">
+            <span class="p-inputgroup">
+                <span class="p-inputgroup-addon">Bcc</span>
+                <input id="bcc" type="text" pInputText formControlName="bcc">
+            </span>
+        </div>
+        <div class="w-full mb-2">
+            <span class="p-inputgroup">
+                <span class="p-inputgroup-addon">Objet</span>
+                <input id="subject" type="text" pInputText formControlName="subject">
+            </span>
+        </div>
+        <div class="w-full mt-5">
+           <app-compose-attachments [files]="files"></app-compose-attachments>
+        </div>
+        <div class="flex flex-column justify-content-around my-5">
+            <p-editor formControlName="body" [modules]="modules" #Editor></p-editor>
+        </div>
+        <div>
+            <button pButton type="submit" label="Envoyer" class="p-button-raised p-button-rounded p-button-success"
+                [disabled]="!sendmessageForm.valid"></button>
+        </div>
+    </p-card>
+</form>

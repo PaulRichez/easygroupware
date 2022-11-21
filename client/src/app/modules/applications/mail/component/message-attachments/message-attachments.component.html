@@ -1,0 +1,8 @@
+<p-card styleClass="mb-3">
+    <div class="flex flex-wrap">
+        <div *ngFor="let attachment of attachments; let i = index" class="mr-3 cursor-pointer" >
+            <span (click)="downloadAttachment(attachment, i)">{{ attachment.filename ? attachment.filename : 'PJ' + i
+                }}</span>
+        </div>
+    </div>
+</p-card>

@@ -1,0 +1,10 @@
+<div class="p-menu w-full">
+    <div class="text-xl p-2"><b>Boîte mail</b></div>
+    <p-tree styleClass="white-space-nowrap" [value]="mailboxes" [filter]="false" selectionMode="single"
+        [(selection)]="selectedBox" (onNodeSelect)="nodeSelect($event)">
+        <ng-template let-node pTemplate="default">
+            <span [routerLink]="node.data.routerLink"
+                [routerLinkActive]="'p-menuitem-link-active'">{{node.data.name}}</span>
+        </ng-template>
+    </p-tree>
+</div>

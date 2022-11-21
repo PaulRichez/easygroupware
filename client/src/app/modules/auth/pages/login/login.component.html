@@ -1,0 +1,42 @@
+<div class="flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+    <div class="grid justify-content-center p-2 lg:p-0" style="min-width:80%">
+        <div class="col-12 xl:col-6">
+            <p-card class="h-full w-full">
+                <div class="text-center mb-5">
+                    <span class="text-4xl">Connexion</span>
+                </div>
+                <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="w-full md:w-10 mx-auto">
+                    <div class="field col-12">
+                        <span class="p-float-label">
+                            <input id="username" formControlName="username" type="text" pInputText class="w-full">
+                            <label for="username">Nom
+                                d'utilisateur</label>
+                            </span>
+                        </div>
+                        
+                        <div class="field col-12">
+                            <span class="p-float-label">
+                                <input id="password" formControlName="password" type="password" pInputText class="w-full">
+                                <label for="password">Mot de passe</label>
+                            </span>
+                        </div>
+                        
+                        
+                        <div class="flex align-items-center justify-content-between mb-3">
+                            <div class="flex align-items-center">
+                                <p-checkbox inputId="remenberMe" formControlName="remenberMe" [binary]="true"
+                                styleClass="mr-2"></p-checkbox>
+                                <label for="remenberMe">Remember me</label>
+                            </div>
+                            <a class="font-medium no-underline ml-2 text-right cursor-pointer"
+                            style="color: var(--primary-color)" [routerLink]="['../forget-password']">Mot de passe
+                            oublié ?</a>
+                        </div>
+                        <p-message *ngIf="error" severity="error" text="Erreur de connexion" styleClass="w-full mb-3"></p-message>
+                        <button pButton pRipple label="Connexion" class="w-full p-3 text-xl" type="submit" iconPos="right"
+                        [loading]="formLogin.disabled"></button>
+                    </form>
+                </p-card>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,17 @@
+<div class="field">
+    <span class="p-float-label pb-4">
+        <label>{{title}}</label>
+    </span>
+    <file-upload [formControl]="control" [multiple]="multiple" [accept]="accept"
+        [ngClass]="{'ng-invalid': control.errors}">
+        <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
+            <span *ngIf="isFileDragDropAvailable">
+                <i class="pi pi-upload"></i>
+            </span>
+            <span *ngIf="!isFileDragDropAvailable">
+                <i class="pi pi-upload"></i>
+            </span>
+        </ng-template>
+    </file-upload>
+    <small [id]="title" class="p-error block ml-2" *ngIf="control?.errors">Ce champ est invalide.</small>
+</div>

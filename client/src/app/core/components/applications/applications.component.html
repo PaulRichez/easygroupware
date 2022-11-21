@@ -1,0 +1,21 @@
+<div class="p-menu w-full">
+    <div class="text-xl p-2"><b>Applications</b></div>
+    <div class="p-menu w-full">
+        <ul class="p-menu-list">
+            <li *ngFor="let app of applicationsService.applications" class="p-menuitem">
+                <div *ngIf="!app.invisible" class="flex flex-row align-items-center justify-content-between">
+                    <div class="p-menuitem-link w-full"
+                        (click)="applicationsService.openNewApplication(app.appId, true); click.emit()">
+                        <span class="{{ 'p-menuitem-icon fa ' + app.icon}}"></span>
+                        <span class="p-menuitem-text"> {{ app.label}} </span>
+                    </div>
+                    <div *ngIf="!app.unique">
+                        <button pButton pRipple type="button" icon="fa-solid fa-arrow-up-right-from-square"
+                            class="p-button-secondary p-button-text"
+                            (click)="applicationsService.openNewApplication(app.appId); click.emit()"></button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

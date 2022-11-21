@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-fluid grid mb-2">
+    <p-card class="w-full">
+        <div class="field col-12 md:col-3">
+            <span class="p-float-label">
+                <p-inputNumber inputId="integeronly" formControlName="driveLimitSize" [min]="50" suffix=" Mo" >
+                </p-inputNumber>
+                <label for="driveLimitSize">Stoquage limite par utilisateur</label>
+            </span>
+        </div>
+
+        <ng-template pTemplate="header">
+            <div class="flex flex-row align-content-between justify-content-between p-4 pb-0">
+                <div class="p-card-title">Configuration drive</div>
+                <p-button label="Enregistrer" styleClass="p-button-sm" type="submit"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</form>

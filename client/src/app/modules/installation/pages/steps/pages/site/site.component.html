@@ -1,0 +1,36 @@
+<form [formGroup]="installationService.formWebsite" (ngSubmit)="onSubmit()" class="w-full">
+    <p-card>
+        <ng-template pTemplate="subtitle">
+            Configuration par défaut de l'application.
+        </ng-template>
+        <ng-template pTemplate="body">
+            <div class="p-fluid grid">
+                <div class="field col-12 md:col-6">
+                    <span class="p-float-label">
+                        <input id="society" formControlName="society" type="text" pInputText class="w-full"
+                            dFormValidation>
+                        <label for="society">Nom de la société</label>
+                    </span>
+                </div>
+
+                <div class="field col-12 md:col-6">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="themesService.themeList" formControlName="theme" optionLabel="name" optionValue="value"
+                            (onChange)="themesService.current = $event.value">
+                        </p-dropdown>
+                        <label for="theme">Theme par défaut</label>
+                    </span>
+                </div>
+
+                <div class="col-12 md:col-6" *ngIf="false">
+                    <app-file-upload [control]="installationService.fileUploadControl" [accept]="'image/*'" [multiple]="false" [title]="'Logo'"></app-file-upload>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="grid grid-nogutter justify-content-end">
+                <button pButton pRipple label="Suivant" type="submit"></button>
+            </div>
+        </ng-template>
+    </p-card>
+</form>

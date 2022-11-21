@@ -1,0 +1,51 @@
+<div class="" [ngStyle]="{'width': 'calc(100% - '+ ( showSelectedEntryInfo ? '300' : '0') + 'px)'}"
+    style="height: calc(100vh - 250px);min-height: 200px">
+    <p-table [value]="directoryData" [loading]="loadingData" [scrollable]="true" [scrollHeight]="'flex'"
+        scrollDirection="vertical" responsiveLayout="scroll" (sortFunction)="customSort($event)" [customSort]="true"
+        sortField="name">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="name" #nameColumn>Nom <p-sortIcon field="name"></p-sortIcon>
+                </th>
+                <th class="hidden md:block">Proprietaire</th>
+                <th class="hidden md:block" pSortableColumn="createdAt">Date de création<p-sortIcon field="createdAt">
+                    </p-sortIcon>
+                </th>
+                <th class="hidden md:block">Taille</th>
+                <th style="width: 5rem; max-width: 5rem"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-entry>
+            <tr class="cursor-pointer" [ngClass]="{'p-highlight' : selectedEntry?.id == entry.id}"
+                style="max-width: calc(100vw - 16px)">
+                <td (dblclick)="dbClick.emit(entry)" (click)="clickRow(entry)"
+                    class="text-overflow-ellipsis white-space-nowrap overflow-hidden">
+
+                    <i [ngClass]="filesHelper.getIconEntry(entry) + ' fa-xl fa-fw'"></i>
+                    <span class="text-overflow-ellipsis white-space-nowrap overflow-hidden">{{ entry.name }}</span>
+
+                </td>
+                <td class="hidden md:flex" (dblclick)="dbClick.emit(entry)" (click)="clickRow(entry)">
+                    {{ entry.owner?.username }}
+                </td>
+                <td class="hidden md:flex" (dblclick)="dbClick.emit(entry)" (click)="clickRow(entry)">
+                    {{entry.createdAt | date:'dd/MM/yyyy HH:mm'}}
+                </td>
+                <td class="hidden md:flex" (dblclick)="dbClick.emit(entry)" (click)="clickRow(entry)">
+                    {{ filesHelper.getByteSizeEntry(entry) }}
+                </td>
+                <td style="width: 5rem; max-width: 5rem">
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-v"
+                        class="p-button-secondary p-button-text"
+                        (click)="createMenuItems(entry);menu.toggle($event)"></button>
+                    <p-menu #menu [popup]="true" [model]="itemsEntry" [appendTo]="'body'"></p-menu>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+                <td>Dossier vide</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

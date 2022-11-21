@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "imap_smtps",
+  "info": {
+    "singularName": "imap-smtp",
+    "pluralName": "imap-smtps",
+    "displayName": "imap-smtp",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "imap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "email-settings.imap"
+    },
+    "smtp": {
+      "type": "component",
+      "repeatable": false,
+      "component": "email-settings.smtp"
+    }
+  }
+}

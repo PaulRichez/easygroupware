@@ -1,0 +1,5 @@
+<p-avatarGroup *ngIf="users">
+    <p-avatar *ngFor="let user of usersShow" [image]="user.image" [label]="user.image ? '' : user.label"
+        [style]="{'background-color': user.color}" shape="circle" [pTooltip]="user.name"></p-avatar>
+    <p-avatar *ngIf="otherUsersCount" [label]="'+' + otherUsersCount" shape="circle"></p-avatar>
+</p-avatarGroup>

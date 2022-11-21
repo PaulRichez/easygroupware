@@ -1,0 +1,41 @@
+<div>
+    <p-button label="Retour" styleClass="p-button-secondary p-button-text p-button-sm" icon="pi pi-arrow-left"
+        (click)="goBack()"></p-button>
+</div>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="p-fluid grid">
+    <div class="col-12 flex justify-content-between mb-3">
+        <div>
+
+        </div>
+        <div>
+            <p-button label="Enregister" [loading]="loadingSave" styleClass="p-button-sm" type="submit"></p-button>
+        </div>
+    </div>
+    <div class="col-12 lg:col-9">
+        <p-card header="Informations">
+            <ng-template pTemplate="body">
+                <div class="p-fluid grid">
+                    <div class="field col-12 md:col-6">
+                        <span class="p-float-label">
+                            <input id="name" formControlName="name" type="text" pInputText class="w-full"
+                                dFormValidation>
+                            <label for="name">Nom</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <span class="p-float-label">
+                            <input id="description" formControlName="description" type="text" pInputText class="w-full"
+                                dFormValidation>
+                            <label for="description">Description</label>
+                        </span>
+                    </div>
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
+    <div class="col-12 lg:col-3">
+        <p-card header="Permissions">
+
+        </p-card>
+    </div>
+</form>

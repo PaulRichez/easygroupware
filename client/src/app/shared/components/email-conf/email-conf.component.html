@@ -1,0 +1,30 @@
+<p-panel [header]="header">
+    <div class="pt-2 grid" [formGroup]="form">
+        <div class="field col-12 md:col-6">
+            <span class="p-float-label">
+                <input type="text" pInputText formControlName="host" class="w-full">
+                <label [for]="header + 'host'">Hote</label>
+            </span>
+        </div>
+        <div class="field col-12 md:col-6">
+            <span class="p-float-label">
+                <input type="text" pInputText formControlName="port" class="w-full">
+                <label [for]="header + 'port'">Port</label>
+            </span>
+        </div>
+        <div class="col-12 md:col-6">
+            <p-checkbox name="secure" formControlName="secure" [binary]="true" [label]="'secure'">
+            </p-checkbox>
+        </div>
+        <div class="field col-12 md:col-6" [formGroup]="getFormTls()">
+            <p-checkbox name="rejectUnauthorized" formControlName="rejectUnauthorized" [binary]="true" [label]="'rejectUnauthorized'">
+            </p-checkbox>
+        </div>
+        <div class="field col-12 md:col-6" [formGroup]="getFormTls()">
+            <span class="p-float-label">
+                <input type="text" pInputText formControlName="minVersion" class="w-full">
+                <label [for]="header + '-minVersion'">minVersion</label>
+            </span>
+        </div>
+    </div>
+</p-panel>

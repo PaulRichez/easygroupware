@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_contact_names",
+  "info": {
+    "displayName": "name",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "civility": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div>
+    <p-button label="Retour" styleClass="p-button-secondary p-button-text p-button-sm" icon="pi pi-arrow-left"
+        (click)="goBack()"></p-button>
+</div>
+<div class="col-12 flex justify-content-between mb-3">
+    <div>
+        <b class="text-4xl">News</b>
+        <br />
+        <i class="text-sm" *ngIf="news?.title">{{ news.title }}</i>
+    </div>
+</div>
+<p-card>
+    <div *ngIf="news?.content" [innerHtml]="news.content | safe: 'html'"></div>
+</p-card>

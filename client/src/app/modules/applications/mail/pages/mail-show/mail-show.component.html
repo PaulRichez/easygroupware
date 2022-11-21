@@ -1,0 +1,13 @@
+<div>
+    <p-button label="Retour" styleClass="p-button-secondary p-button-text p-button-sm" icon="pi pi-arrow-left"
+        (click)="goBack()"></p-button>
+</div>
+<div *ngIf="!loading">
+    <app-message-header [mail]="mail"></app-message-header>
+    <app-message-attachments *ngIf="mail.attachments" [attachments]="mail.attachments"></app-message-attachments>
+    <p-card>
+        <ng-template pTemplate="body">
+            <app-message-content [mail]="mail"></app-message-content>
+        </ng-template>
+    </p-card>
+</div>

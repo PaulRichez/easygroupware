@@ -1,0 +1,34 @@
+{
+  "name": "eg-2-server",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.4.3",
+    "@strapi/plugin-users-permissions": "4.4.3",
+    "@strapi/provider-email-nodemailer": "^4.4.3",
+    "@strapi/strapi": "4.4.3",
+    "better-sqlite3": "7.4.6",
+    "pg": "^8.8.0",
+    "strapi-plugin-populate-deep": "^1.0.1",
+    "strapi-plugin-server-route-permission": "^2.0.2",
+    "strapi-plugin-transformer": "^2.1.0"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "04e2e496-3e8c-48ca-ba91-12d4eeb0407e"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

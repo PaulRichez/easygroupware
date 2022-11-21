@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "emailengine-config",
+  "info": {
+    "singularName": "emailengine-config",
+    "pluralName": "emailengine-configs",
+    "displayName": "emailengine-config",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "default": "http://localhost:3000/"
+    },
+    "token": {
+      "type": "string",
+      "private": true
+    }
+  }
+}

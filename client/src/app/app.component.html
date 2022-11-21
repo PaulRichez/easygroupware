@@ -1,0 +1,27 @@
+<app-global-loader *ngIf="loading"></app-global-loader>
+<ng-container *ngIf="!authService.connectedUser">
+    <router-outlet *ngIf="!loading"></router-outlet>
+</ng-container>
+
+<ng-container *ngIf="authService.connectedUser && !loading">
+    <div class="flex">
+        <div #sideBarDiv class="h-full" id="sidebar-nav"></div>
+
+        <p-sidebar [(visible)]="mainSidebarService.displaySidebar" [modal]="isMobile" [showCloseIcon]="false" [appendTo]="sideBarDiv"
+            [closeOnEscape]="false">
+            <app-sidebar></app-sidebar>
+        </p-sidebar>
+        <div class="flex flex-column w-full"
+            [ngStyle]="{'padding-left' : !isMobile && mainSidebarService.displaySidebar ? '20rem' : '0' }">
+            <div class="sticky top-0" style="z-index: 999; height:70px">
+                <app-header (toggleSidebar)="mainSidebarService.displaySidebar = !mainSidebarService.displaySidebar"></app-header>
+            </div>
+            <div class="flex flex-column h-full p-2 md:p-4">
+                    <div *ngFor="let app of applicationsService.applicationsTab"
+                        [ngClass]="{'hidden' :app.uid !== applicationsService.currentApp?.uid}">
+                        <named-outlet [name]="app.route.outlet"></named-outlet>
+                    </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

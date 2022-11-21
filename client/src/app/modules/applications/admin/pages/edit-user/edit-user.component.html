@@ -1,0 +1,5 @@
+<div>
+    <p-button label="Retour" styleClass="p-button-secondary p-button-text p-button-sm" icon="pi pi-arrow-left"
+        (click)="goBack()"></p-button>
+</div>
+<app-c-edit-user [user]="user" [loadingData]="loadingData" [type]="idUser ? 'edit' : 'add'"></app-c-edit-user>

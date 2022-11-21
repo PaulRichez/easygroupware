@@ -1,0 +1,43 @@
+:host {
+    display: block;
+
+    img {
+        max-width: 100%;
+    }
+
+    file-upload {
+        background: transparent !important;
+    }
+
+    .ng-invalid {
+        outline: 1px dashed #e24c4c;
+    }
+
+
+    .icon {
+        height: 35px;
+        width: 35px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #eaeaea;
+        border-radius: 4px;
+        float: left;
+        margin-right: 20px;
+    }
+
+    .upload-text {
+        overflow: hidden;
+        width: auto;
+        font-size: 14px;
+    }
+
+    .list-visible .upload-input {
+        display: none;
+    }
+
+    ::ng-deep .file-buttons {
+        .remove-btn {
+            fill: currentColor;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+<div class="mt-2">
+    <input [pAutoFocus]="true" type="text" pInputText class="w-full" autocomplete="off" [(ngModel)]="folderName">
+</div>
+<div class="flex justify-content-around mt-3">
+    <button pButton type="button" class="p-button-danger" (click)="onCancel()"><i class="bi bi-x"></i>Annuler</button>
+    <button pButton type="submit" class="btn btn-success" [disabled]="!folderName" (click)="onSubmit()">
+        <i class="bi bi-check"></i>
+        Valider
+    </button>
+</div>

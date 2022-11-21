@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "event"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "allDay": {
+      "type": "boolean"
+    },
+    "start": {
+      "type": "datetime"
+    },
+    "end": {
+      "type": "datetime"
+    },
+    "title": {
+      "type": "string"
+    },
+    "event_source": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::calendar.event-source",
+      "inversedBy": "events"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+<p-avatar *ngIf="user.userExtended.avatar" [size]="size ? size : ''" [styleClass]="styleClass ? styleClass : ''"
+    shape="circle" [image]="user.userExtended.avatar.url"></p-avatar>
+<p-avatar *ngIf="!user.userExtended.avatar" [label]="label" [size]="size ? size : ''"
+    [styleClass]="styleClass ? styleClass : ''" shape="circle" [style]="{'background-color': stringToColour(label)}">
+</p-avatar>

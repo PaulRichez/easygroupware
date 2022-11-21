@@ -1,0 +1,11 @@
+.header {
+    /*top: 70px;
+    z-index: 999;*/
+    background-color: var(--surface-d)
+}
+
+::ng-deep .right-sidebar {
+    position: absolute !important;
+    top: auto !important;
+    right: 0 !important;
+}

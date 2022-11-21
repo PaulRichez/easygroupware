@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_contact_cities",
+  "info": {
+    "displayName": "city",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "countryCode": {
+      "type": "string"
+    },
+    "stateCode": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "string"
+    }
+  }
+}

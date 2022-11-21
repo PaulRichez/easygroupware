@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_user_extend_user_extendeds",
+  "info": {
+    "displayName": "user-extended",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact.country"
+    },
+    "city": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact.city"
+    }
+  }
+}

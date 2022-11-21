@@ -1,0 +1,56 @@
+<div>
+    <p-button label="Retour" styleClass="p-button-secondary p-button-text p-button-sm" icon="pi pi-arrow-left"
+        (click)="goBack()"></p-button>
+</div>
+<form [formGroup]="formContact" (ngSubmit)="onSubmit()" class="p-fluid grid">
+    <div class="col-12 flex justify-content-between mb-3">
+        <div>
+            <b class="text-4xl" *ngIf="!contact">Nouveau contact</b>
+        </div>
+        <div>
+            <p-button label="Enregister" [loading]="loadingSave" styleClass="p-button-sm" type="submit"></p-button>
+        </div>
+    </div>
+    <div class="col-12">
+        <p-card header="Informations">
+            <ng-template pTemplate="body">
+                <div class="p-fluid grid" [formGroup]="formName">
+                    <div class="field col-12 md:col-4">
+                        <span class="p-float-label">
+                            <input id="civility" formControlName="civility" type="text" pInputText class="w-full"
+                                dFormValidation>
+                            <label for="civility">Civilité</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <span class="p-float-label">
+                            <input id="lastName" formControlName="lastName" type="text" pInputText class="w-full"
+                                dFormValidation>
+                            <label for="lastName">Nom</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <span class="p-float-label">
+                            <input id="firstName" formControlName="firstName" type="text" pInputText class="w-full"
+                                dFormValidation>
+                            <label for="firstName">Prénom</label>
+                        </span>
+                    </div>
+                </div>
+
+                <p-tabView>
+                    <p-tabPanel header="Professionel">
+                        <app-bloc [formBloc]="formPro" [formContacts]="formContactsPro"
+                            [formAddress]="formAddressPro"></app-bloc>
+                    </p-tabPanel>
+                    <p-tabPanel header="Privé">
+                        <app-bloc [formBloc]="formPrivate" [formContacts]="formContactsPrivate"
+                            [formAddress]="formAddressPrivate" [type]="'private'"></app-bloc>
+                    </p-tabPanel>
+                </p-tabView>
+
+
+            </ng-template>
+        </p-card>
+    </div>
+</form>

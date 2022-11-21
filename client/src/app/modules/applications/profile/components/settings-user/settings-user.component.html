@@ -1,0 +1,37 @@
+<form [formGroup]="userSettings" (ngSubmit)="onSubmit()">
+    <p-card class="w-full">
+        <ng-template pTemplate="body">
+            <div class="p-fluid grid">
+                <div class="field col-12 md:col-4">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="themesService.themeList" formControlName="theme" optionLabel="name"
+                            optionValue="value">
+                        </p-dropdown>
+                        <label for="theme">Theme</label>
+                    </span>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="['FR']" formControlName="language">
+                        </p-dropdown>
+                        <label for="language">Langue</label>
+                    </span>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="['header','sidebar']" formControlName="applicationsPlace">
+                        </p-dropdown>
+                        <label for="language">Emplacement des applications</label>
+                    </span>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <div class="flex flex-row align-content-between justify-content-between p-4 pb-0">
+                <div class="p-card-title">Paramètres du site</div>
+                <p-button label="Enregistrer" styleClass="p-button-sm" type="submit" [disabled]="userSettings.invalid">
+                </p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</form>

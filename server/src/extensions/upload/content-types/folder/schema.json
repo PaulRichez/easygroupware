@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "upload_folders",
+  "info": {
+    "singularName": "folder",
+    "pluralName": "folders",
+    "displayName": "Folder",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": true
+    },
+    "content-type-builder": {
+      "visible": true
+    }
+  },
+  "attributes": {
+    "pathId": {
+      "type": "integer",
+      "unique": true,
+      "required": true,
+      "configurable": false
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::upload.folder",
+      "inversedBy": "children",
+      "configurable": false
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::upload.folder",
+      "mappedBy": "parent",
+      "configurable": false
+    },
+    "files": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::upload.file",
+      "mappedBy": "folder"
+    },
+    "path": {
+      "type": "string",
+      "min": 1,
+      "required": true,
+      "configurable": false
+    },
+    "name": {
+      "type": "string",
+      "min": 1,
+      "required": true,
+      "maxLength": 25,
+      "configurable": false
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

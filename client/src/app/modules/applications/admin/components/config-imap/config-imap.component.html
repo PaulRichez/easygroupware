@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-fluid grid mb-5">
+    <p-card>
+        <div class="grid">
+            <div class="col-12 md:col-6">
+                <app-email-conf [form]="imapForm" [header]="'Imap'"></app-email-conf>
+            </div>
+            <div class="col-12 md:col-6">
+                <app-email-conf [form]="smtpForm" [header]="'Smtp'"></app-email-conf>
+            </div>
+        </div>
+        <ng-template pTemplate="header">
+            <div class="flex flex-row align-content-between justify-content-between p-4 pb-0">
+                <div class="p-card-title">Configuration email</div>
+                <p-button label="Enregistrer" styleClass="p-button-sm" type="submit"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</form>

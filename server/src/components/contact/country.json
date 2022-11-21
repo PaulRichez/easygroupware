@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_contact_countries",
+  "info": {
+    "displayName": "country"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isoCode": {
+      "type": "string"
+    },
+    "flag": {
+      "type": "string"
+    },
+    "phonecode": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "string"
+    },
+    "timezones": {
+      "type": "json"
+    }
+  }
+}

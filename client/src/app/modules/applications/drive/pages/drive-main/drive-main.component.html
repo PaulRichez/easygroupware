@@ -1,0 +1,26 @@
+<input type="file" multiple="true" #fileInput (change)="upload($event, fileInput)" class="hidden" />
+<div class="sticky header">
+    <div class="col-12 flex justify-content-between mb-3">
+        <div>
+            <b class="text-4xl">Fichiers</b>
+        </div>
+        <div>
+            <p-splitButton label="Ajouter des fichiers" [model]="itemsTop" (onClick)="fileInput.click()"
+                styleClass="p-button-sm"></p-splitButton>
+        </div>
+    </div>
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+</div>
+
+<div class="relative">
+    <div #mainFiles></div>
+    <app-file-table-view [selectedFolderId]="idFolder" [folder]="folder" [loadingData]="loadingData"
+        (dbClick)="dbClick($event)" (renameEntry)="renameOrCreateEntry($event)" (showInfoEntry)="showInfoEntry($event)"
+        [showSelectedEntryInfo]="showSelectedEntryInfo" [selectedEntry]="selectedEntry" (deleteEntry)="deleteEntry($event)"
+        (downloadEntry)="downloadEntry($event)"></app-file-table-view>
+</div>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+<p-sidebar [(visible)]="showSelectedEntryInfo" [modal]="false" [appendTo]="mainFiles" [showCloseIcon]="false"
+    position="right" styleClass="sideBarCustom" styleClass="right-sidebar">
+    <app-selected-entry-infos [selectedEntry]="selectedEntry" (close)="closeInfos()"></app-selected-entry-infos>
+</p-sidebar>

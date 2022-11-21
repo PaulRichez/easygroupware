@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user-group",
+  "info": {
+    "singularName": "user-group",
+    "pluralName": "user-groups",
+    "displayName": "user-groups",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 3
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_groups"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

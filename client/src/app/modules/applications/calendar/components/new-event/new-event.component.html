@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="flex justify-content-center mb-2" *ngIf="config.data.event">
+        <button pButton pRipple type="button" label="Supprimer l'evenement" class="p-button-warning"
+            (click)="deleteEvent()"></button>
+    </div>
+    <div>
+        <input pInputText [pAutoFocus]="true" type="text" formControlName="title" minlength="3" placeholder="Titre"
+            class="w-full mb-2" />
+        <input pInputText type="text" formControlName="lieu" minlength="3" placeholder="Lieu" class="w-full mb-2" />
+        <p-editor formControlName="description" [modules]="modules" #Editor></p-editor>
+        <div class="field-checkbox mb-2">
+            <p-checkbox formControlName="allDay" [value]="form.get('allDay')?.value" inputId="allDay" [binary]="true">
+            </p-checkbox>
+            <label for="allDay">Toute la journée</label>
+        </div>
+    </div>
+    <div class="flex flex-column md:flex-row mb-2 justify-content-between align-items-center">
+        <div class="flex flex-column">
+            <span>Date de début</span>
+            <p-calendar formControlName="start" [stepMinute]="15" [inline]="true"
+                [showTime]="!form.get('allDay')?.value" [showWeek]="true"></p-calendar>
+        </div>
+        <div class="flex flex-column">
+            <span>Date de fin</span>
+            <p-calendar formControlName="end" [stepMinute]="15" [inline]="true" [showTime]="!form.get('allDay')?.value"
+                [showWeek]="true"></p-calendar>
+        </div>
+    </div>
+
+    <div class="flex justify-content-around mt-3">
+        <button pButton type="button" class="p-button-danger" (click)="onCancel()"><i
+                class="bi bi-x"></i>Annuler</button>
+        <button pButton type="submit" class="btn btn-success" [disabled]="form.invalid">
+            <i class="bi bi-check"></i>
+            Valider
+        </button>
+    </div>
+</form>

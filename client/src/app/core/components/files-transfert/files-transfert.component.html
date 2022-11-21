@@ -1,0 +1,30 @@
+<div *ngIf="!filesTransfert.queue.length">
+    Aucun fichier en cours de transfert !
+</div>
+<div *ngFor="let file of filesTransfert.queue; let last = last" class="w-full">
+    <div class="flex align-items-center">
+        <div class="mr-2">
+            <i class="{{ filesHelperService.getIconFile(file.data) }} fa-2xl fa-fw"></i>
+        </div>
+        <div style="width:225px">
+            <div class="flex justify-content-between">
+                <div class="text-overflow-ellipsis white-space-nowrap overflow-hidden mr-2">{{ file.data.fileName || file.data.name }}</div>
+                <div class="text-overflow-ellipsis white-space-nowrap">
+                    <span>{{ filesHelperService.getByteSizeTransfet(file) }}</span>
+                    <i class="fa-solid fa-arrow-down" [ngClass]="{'fa-rotate-180': file.type == 'upload'}"></i>
+                </div>
+            </div>
+            <div *ngIf="!file.error">
+                <p-progressBar *ngIf="file.progress !== 100" [value]="file.progress" [showValue]="false"
+                    [style]="{'height':'10px'}"></p-progressBar>
+                <span *ngIf="file.progress === 100" class="p-success">
+                    {{ file.type === 'upload' ? 'Envoie ' : 'Téléchargement '}} terminé
+                </span>
+            </div>
+            <div *ngIf="file.error">
+                <span class="p-error">Une erreur est survenue</span>
+            </div>
+        </div>
+    </div>
+    <p-divider *ngIf="!last"></p-divider>
+</div>

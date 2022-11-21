@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_sources",
+  "info": {
+    "singularName": "event-source",
+    "pluralName": "event-sources",
+    "displayName": "event-source",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "color": {
+      "type": "string",
+      "required": true
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::calendar.event",
+      "mappedBy": "event_source"
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

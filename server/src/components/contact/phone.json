@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_contact_contacts",
+  "info": {
+    "displayName": "contacts",
+    "icon": "phone",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "mobilePhone": {
+      "type": "string"
+    },
+    "fixPhone": {
+      "type": "string"
+    },
+    "otherPhone": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    }
+  }
+}

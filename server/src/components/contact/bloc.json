@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_contact_blocs",
+  "info": {
+    "displayName": "bloc",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "contacts": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact.phone"
+    },
+    "address": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact.address"
+    },
+    "role": {
+      "type": "string"
+    }
+  }
+}

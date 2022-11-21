@@ -1,0 +1,64 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p-card class="w-full">
+        <div class="grid">
+            <div class="col-12 p-fluid grid mb-4">
+                <div class="col-12">
+                    <span>Statut du compte email : </span>
+                    <p-tag *ngIf="emailAccount?.statusCode == 404" styleClass="ml-2" severity="danger" value="Non créé">
+                    </p-tag>
+                    <p-tag *ngIf="emailAccount?.state == 'authenticationError'" styleClass="ml-2" severity="warning"
+                        value="Erreur d'authentification">
+                    </p-tag>
+                    <p-tag *ngIf="emailAccount?.state == 'connected'" styleClass="ml-2" severity="success"
+                        value="Connecté">
+                    </p-tag>
+                    <p-tag *ngIf="emailAccount?.state == 'init'" styleClass="ml-2" severity="info"
+                        value="Initiation du compte">
+                    </p-tag>
+                    <p-tag *ngIf="emailAccount?.state == 'connecting'" styleClass="ml-2" severity="info"
+                        value="En cours de connection">
+                    </p-tag>
+                    <p-tag *ngIf="emailAccount?.state == 'syncing'" styleClass="ml-2" severity="info"
+                        value="En cours de synchronisation">
+                    </p-tag>
+                </div>
+                <div class="col-12 flex">
+                    <p-message *ngIf="emailAccount?.statusCode == 404" severity="info"
+                        text="Veuillez renseigner votre mot de passe pour créer votre compte!" styleClass="mr-2">
+                    </p-message>
+                </div>
+            </div>
+            <div class="field col-12 md:col-6">
+                <span class="p-float-label">
+                    <input id="email" type="email" pInputText class="w-full" disabled
+                        [value]="authentificationService.connectedUser.email">
+                    <label for="email">Email</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-6">
+                <span class="p-float-label">
+                    <input id="password" formControlName="password" type="password" pInputText class="w-full"
+                        dFormValidation>
+                    <label for="password">Mot de passe</label>
+                </span>
+            </div>
+        </div>
+        <p-panel header="Config IMAP SMTP" [toggleable]="true" [collapsed]="true">
+            <div class="grid">
+                <div class="col-12 md:col-6">
+                    <app-email-conf [form]="imapForm" [header]="'Imap'"></app-email-conf>
+                </div>
+                <div class="col-12 md:col-6">
+                    <app-email-conf [form]="smtpForm" [header]="'Smtp'"></app-email-conf>
+                </div>
+            </div>
+        </p-panel>
+        <ng-template pTemplate="header">
+            <div class="flex flex-row align-content-between justify-content-between p-4 pb-0">
+                <div class="p-card-title">Configuration email</div>
+                <p-button label="Enregistrer" styleClass="p-button-sm" type="submit" [disabled]="form.invalid">
+                </p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</form>

@@ -1,0 +1,63 @@
+<div class="col-12 flex justify-content-between mb-3">
+    <div>
+        <b class="text-4xl">Contacts</b>
+        <br />
+        <i class="text-sm"></i>
+    </div>
+    <div>
+        <p-button label="Nouveau" (click)="add()" styleClass="p-button-sm"></p-button>
+    </div>
+</div>
+<p-card>
+    <div class="" style="height: calc(100vh - 275px);min-height: 200px">
+        <p-table [scrollable]="true" [scrollHeight]="'flex'" scrollDirection="vertical" responsiveLayout="scroll" #dt
+            [value]="contacts" [rows]="25" [rowsPerPageOptions]="[25,50]" [paginator]="true" [lazy]="true"
+            (onLazyLoad)="fetchContact($event)" [rowHover]="true" dataKey="id"
+            styleClass="p-datatable-gridlines p-datatable-striped"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [showCurrentPageReport]="true">
+            <!-- <ng-template pTemplate="caption">
+            <div class="p-fluid grid mt-2">
+                <div class="field col-12 lg:col-3">
+                    <span class="p-float-label">
+                        <p-treeSelect [(ngModel)]="selectedColumnsTree" [options]="columnsTree" placeholder="Colonnes"
+                            selectionMode="checkbox" (onNodeSelect)="changeColumnSelectedTree($event)"
+                            (onNodeUnselect)="changeColumnSelectedTree($event)"></p-treeSelect>
+                        <label for="column">Colonnes</label>
+                    </span>
+                </div>
+
+            </div>
+        </ng-template>-->
+            <ng-template pTemplate="header">
+                <!-- <tr>
+                <ng-container *ngFor="let col of getColumn(2)">
+                    <th rowspan="2">{{ col.label }}</th>
+                </ng-container>
+            </tr>
+            <tr>
+                <ng-container *ngFor="let col of getColumn(1)">
+                    <th rowspan="2">{{ col.label }}</th>
+                </ng-container>
+            </tr> -->
+                <tr>
+                    <ng-container *ngFor="let col of getColumn()">
+                        <th>{{ col.label }}</th>
+                    </ng-container>
+                    <th style="width: 5rem; max-width: 5rem"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-contact>
+                <tr>
+                    <ng-container *ngFor="let col of getColumn()">
+                        <td>{{ getContactBypath(contact, col) }}</td>
+                    </ng-container>
+                    <td style="width: 5rem; max-width: 5rem"> <button pButton type="button"
+                            class="p-button-secondary p-button-text" icon="fa-solid fa-pen"
+                            (click)="edit(contact)"></button></td>
+                </tr>
+            </ng-template>
+
+        </p-table>
+    </div>
+</p-card>

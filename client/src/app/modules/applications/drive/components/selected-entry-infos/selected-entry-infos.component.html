@@ -1,0 +1,38 @@
+<div *ngIf="selectedEntry">
+    <div class="sticky top-0 flex flex-row justify-content-between align-items-center" style="background-color:var(--surface-e)">
+        <div class="text-overflow-ellipsis white-space-nowrap overflow-hidden text-2xl ">
+            {{ selectedEntry.name }}
+        </div>
+        <div>
+            <button pButton pRipple type="button" icon="fa-solid fa-xmark fa-xl"
+                class="p-button-rounded p-button-secondary p-button-text" (click)="close.emit()"></button>
+        </div>
+    </div>
+    <div class="flex justify-content-center align-items-center" style="min-height: 200px">
+        <i *ngIf="!preview" [ngClass]="filesHelperService.getIconEntry(selectedEntry) + ' fa-6x'"></i>
+        <img *ngIf="preview" [src]="getThumbnail()">
+    </div>
+    <p-divider></p-divider>
+    <div class="text-2xl">Accés</div>
+    <div>Non partagé</div>
+    <p-divider></p-divider>
+    <div class="text-2xl">Informations</div>
+    <div>
+        <div class="flex flex-row justify-content-between">
+            <div>Propriétaire</div>
+            <div>{{ selectedEntry?.owner?.username }}</div>
+        </div>
+        <div class="flex flex-row justify-content-between">
+            <div>Taille</div>
+            <div>{{ filesHelperService.getByteSizeEntry(selectedEntry) }}</div>
+        </div>
+        <div class="flex flex-row justify-content-between">
+            <div>Créé le</div>
+            <div>{{ selectedEntry.createdAt | date: 'dd/MM/yyyy' }}</div>
+        </div>
+        <div class="flex flex-row justify-content-between">
+            <div>Modifié le</div>
+            <div>{{ selectedEntry.updatedAt | date: 'dd/MM/yyyy' }}</div>
+        </div>
+    </div>
+</div>

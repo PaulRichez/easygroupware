@@ -1,0 +1,42 @@
+<div class="sticky top-0 flex justify-content-end align-items-center top">
+    <div>
+        <p-megaMenu [model]="menuInline" class="flex justify-content-end align-items-end"></p-megaMenu>
+    </div>
+    <div>
+        <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
+            class="p-button-rounded p-button-secondary p-button-text" (click)="menu.toggle($event)"></button>
+        <p-menu #menu [popup]="true" [appendTo]="mydiv" [model]="menuExtend"></p-menu>
+    </div>
+</div>
+<div #mydiv></div>
+<p-card styleClass="mb-3">
+    <ng-template pTemplate="header">
+        <div class="px-4">
+            <span class="text-3xl">{{ mail.subject }}</span>
+        </div>
+    </ng-template>
+    <div class="flex flex-column md:flex-row md:align-items-center justify-content-between">
+        <div>
+            <div>
+                <span>De : </span>
+                <span>{{ mail.from.address }}</span>
+            </div>
+            <div>
+                <span>A : </span>
+                <span *ngFor="let mailTo of mail.to" class="pr-2">{{ mailTo.address }};</span>
+            </div>
+            <div *ngIf="mail.cc">
+                <span>Cc : </span>
+                <span *ngFor="let mailCc of mail.cc" class="pr-2">{{ mailCc.address }};</span>
+            </div>
+            <div *ngIf="mail.bcc">
+                <span>Cci : </span>
+                <span *ngFor="let mailbcc of mail.bcc" class="pr-2">{{ mailbcc.address }};</span>
+            </div>
+        </div>
+        <div>
+            <span>Date : </span>
+            <span>{{ mail.date | date: 'dd/MM/yyyy HH:mm' }}</span>
+        </div>
+    </div>
+</p-card>

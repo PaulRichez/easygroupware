@@ -1,0 +1,12 @@
+<p-card styleClass="mt-3">
+    <div class="grid" *ngIf="!loading && !error">
+        <span class="col-12 border-solid border-1">Version EmailEngine : {{ stats?.version }}</span>
+        <span class="col-12 border-solid border-1">Version imapflow : {{ stats?.imapflow }}</span>
+        <span class="col-12 border-solid border-1">Version Redis : {{ stats?.redis }}</span>
+        <span class="col-12 border-solid border-1">Version Node : {{ stats?.node }}</span>
+    </div>
+    <div *ngIf="error">
+        <p-message severity="danger" text="Une erreur est survenue" styleClass="mr-2">
+        </p-message>
+    </div>
+</p-card>

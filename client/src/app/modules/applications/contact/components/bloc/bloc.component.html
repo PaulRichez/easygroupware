@@ -1,0 +1,75 @@
+<div class="p-fluid grid" [formGroup]="formBloc">
+    <div class="col-12 md:col-6 xl:col-4" [formGroup]="formContacts">
+        <div class="field col-12">
+            <span class="p-float-label">
+                <input id="mobilePhone" formControlName="mobilePhone" type="text" pInputText class="w-full"
+                    dFormValidation>
+                <label for="mobilePhone">Téléphone mobile</label>
+            </span>
+        </div>
+        <div class="field col-12">
+            <span class="p-float-label">
+                <input id="fixPhone" formControlName="fixPhone" type="text" pInputText class="w-full" dFormValidation>
+                <label for="fixPhone">Téléphone fixe</label>
+            </span>
+        </div>
+        <div class="field col-12">
+            <span class="p-float-label">
+                <input id="otherPhone" formControlName="otherPhone" type="text" pInputText class="w-full"
+                    dFormValidation>
+                <label for="otherPhone">Autre téléphone</label>
+            </span>
+        </div>
+        <div class="field col-12">
+            <span class="p-float-label">
+                <input id="url" formControlName="url" type="text" pInputText class="w-full" dFormValidation>
+                <label for="url">URL</label>
+            </span>
+        </div>
+        <div class="field col-12">
+            <span class="p-float-label">
+                <input id="email" formControlName="email" type="text" pInputText class="w-full" dFormValidation>
+                <label for="email">Email</label>
+            </span>
+        </div>
+    </div>
+    <div class="col-12 md:col-6 xl:col-4">
+        <div class="field col-12" *ngIf="type == 'pro'">
+            <span class="p-float-label">
+                <input id="role" formControlName="role" type="text" pInputText class="w-full" dFormValidation>
+                <label for="role">Role</label>
+            </span>
+        </div>
+        <div [formGroup]="formAddress">
+            <div class="field col-12">
+                <span class="p-float-label">
+                    <p-dropdown [options]="countries" formControlName="country" optionLabel="name"
+                        (onChange)="changeCountry($event.value)" placeholder="Pays" [showClear]="true"
+                        [virtualScroll]="true" [virtualScrollItemSize]="40" [filter]="true">
+                    </p-dropdown>
+                    <label for="country">Pays</label>
+                </span>
+            </div>
+            <div class="field col-12">
+                <span class="p-float-label">
+                    <p-dropdown [options]="cities" formControlName="city" optionLabel="name" placeholder="Ville"
+                        [showClear]="true" [virtualScroll]="true" [virtualScrollItemSize]="40" [filter]="true">
+                    </p-dropdown>
+                    <label for="city">Ville</label>
+                </span>
+            </div>
+            <div class="field col-12">
+                <span class="p-float-label">
+                    <input id="street1" formControlName="street1" type="text" pInputText class="w-full" dFormValidation>
+                    <label for="street1">Rue</label>
+                </span>
+            </div>
+            <div class="field col-12">
+                <span class="p-float-label">
+                    <input id="street2" formControlName="street2" type="text" pInputText class="w-full" dFormValidation>
+                    <label for="street2">Complement adresse</label>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

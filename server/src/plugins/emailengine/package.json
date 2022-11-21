@@ -1,0 +1,25 @@
+{
+  "name": "emailengine",
+  "version": "0.0.0",
+  "description": "This is the description of the plugin.",
+  "strapi": {
+    "name": "emailengine",
+    "description": "Description of Emailengine plugin",
+    "kind": "plugin",
+    "displayName": "Emailengine"
+  },
+  "dependencies": {},
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

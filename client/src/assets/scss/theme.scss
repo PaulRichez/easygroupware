@@ -1,0 +1,126 @@
+.p-button:focus,
+.p-panel-toggler:focus,
+.p-tabview-nav-btn:focus,
+.p-tabview-nav-link:focus,
+.p-menuitem-link:focus,
+.p-treenode-selectable,
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus,
+.p-listbox .p-listbox-list .p-listbox-item:focus {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+
+.p-toolbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.p-avatar.p-avatar-lg {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  font-size: 1.2rem !important;
+}
+
+.p-avatar-text {
+  color: #fff;
+  user-select: none;
+}
+
+.p-menuitem-link-active {
+  color: var(--primary-color) !important;
+
+  span {
+    color: var(--primary-color) !important;
+  }
+}
+
+.headerTab {
+  max-width: var(--headerTabsWidth);
+
+  .p-tabview-nav-link {
+    padding-right: 0 !important;
+  }
+
+  .p-tabview-panels {
+    display: none;
+  }
+
+  .p-button-sm {
+    padding: 0.3rem !important;
+    padding-bottom: 0 !important;
+    width: auto !important;
+  }
+}
+
+#sidebar-nav {
+  .p-sidebar-content {
+    height: 100%;
+    margin-top: 20px !important;
+  }
+
+  .p-sidebar-header {
+    display: none;
+  }
+}
+
+.p-inline-message {
+  justify-content: start !important;
+}
+
+.p-tree,
+.p-menu {
+  background: var(--surface-f) !important;
+}
+
+.p-treenode {
+  .p-highlight {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+  }
+}
+
+.p-datatable {
+  background-color: var(--surface-e);
+}
+
+.p-tabview-nav-btn {
+  color: var(--text-color-secondary) !important
+}
+
+.p-treenode-content {
+  padding: 0 !important;
+}
+
+.p-megamenu {
+  background-color: transparent !important;
+  border: 0 !important;
+}
+
+.p-paginator-bottom {
+  button {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+    min-width: 2.5rem !important;
+  }
+
+  @media (max-width: 768px) {
+    button {
+      height: 1.5rem !important;
+      width: 1.5rem !important;
+      min-width: 1.5rem !important;
+    }
+
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    .p-paginator-current {
+      display: none !important;
+    }
+
+    .p-paginator-rpp-options {
+      display: none !important;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<div class="p-menu w-full">
+    <div class="text-xl p-2 flex flex-row align-items-center justify-content-between">
+        <div>
+            <b>Stoquage utilisé</b>
+        </div>
+    </div>
+    <div class="p-menu w-full">
+        <ul class="p-menu-list">
+            <li class="pl-2 w-full flex flex-row justify-content-between text-xl">
+                <div><b>{{ usedSize + ' / ' + defaultConfigService.defaultConfig?.driveLimitSize + ' Mo' }}</b></div>
+                <div><i class="fa fa-hard-drive pr-2"></i></div>
+            </li>
+        </ul>
+    </div>
+</div>

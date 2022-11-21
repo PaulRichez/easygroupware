@@ -1,0 +1,14 @@
+<div class="mb-2">
+    <b class="text-4xl">Stats global</b>
+</div>
+<div class="p-fluid grid col-12">
+    <div *ngFor="let statCard of statsCard" class="col-12 lg:col-6 xl:col-4">
+        <app-stats-card [icon]="statCard.icon" [text]="statCard.text" [obs]="statCard.obs">
+        </app-stats-card>
+    </div>
+</div>
+
+<div class="mb-2">
+    <b class="text-4xl">Informations emailengine</b>
+</div>
+<app-info-emailengine></app-info-emailengine>
