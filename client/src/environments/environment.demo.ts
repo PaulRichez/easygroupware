@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://eg2-server.onrender.com',
+  apiUrl: 'https://easygroupware-server.onrender.com',
   demo: true,
 };
